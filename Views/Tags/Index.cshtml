@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Jasons_Personal_Blog.Models.Domain.Tag>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center py-2">
+    <div class="container">
+        <h1>Tags - Admin Functionality</h1>
+    </div>
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="container" py="5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered border-primary text-center">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Display Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tag in Model)
+                {
+                    <tr>
+                        <td>@tag.Name</td>
+                        <td>@tag.DisplayName</td>
+                        <td>
+                            <a asp-area="" asp-controller="Tags" asp-action="Edit" asp-route-id="@tag.Id">Edit</a> |
+                            <a asp-area="" asp-controller="Tags" asp-action="Delete" asp-route-id="@tag.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Tags Were Found!!</p>
+    }
+</div>

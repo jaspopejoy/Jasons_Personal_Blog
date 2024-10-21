@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Jasons_Personal_Blog.styles.css" asp-append-version="true" />
+
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-primary border-bottom box-shadow">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-brand text-light">Personal Blog</div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -26,10 +29,20 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-bg-secondary" asp-area="" 
-                                                                            asp-controller="Tags" 
-                                                                            asp-action="Index">
-                                                                            Add New Tags</a></li>
+                                <li>
+                                    <a class="dropdown-item text-bg-secondary" asp-area=""
+                                       asp-controller="Tags"
+                                       asp-action="Index">
+                                        Tags
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-bg-secondary" asp-area=""
+                                       asp-controller="BlogPosts"
+                                       asp-action="Index">
+                                        Blogs
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

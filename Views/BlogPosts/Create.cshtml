@@ -1,0 +1,91 @@
+﻿@model Jasons_Personal_Blog.Models.ViewModels.AddBlogPostRequest
+
+@{
+}
+
+<h1>Create</h1>
+
+<h4>BlogPost</h4>
+<hr />
+<div class="container py-5">
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">Heading</label>
+                    <input type="text" class="form-control" id="heading" asp-for="Heading" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Page Title</label>
+                    <input type="text" class="form-control" id="pageTitle" asp-for="PageTitle" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Content</label>
+                    <textarea class="form-control" id="content" asp-for="Content"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Short Description</label>
+                    <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Featured Image Upload</label>
+                    <input type="file" id="featuredImageUpload" class="form-control" />
+
+                    <img src="" id="featuredImageDisplay" style="display:none; width: 300px;" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Featured Image Url</label>
+                    <input type="text" class="form-control" id="featuredImageUrl" asp-for="FeaturedImageUrl" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">URL Handle</label>
+                    <input type="text" class="form-control" id="urlHandle" asp-for="UrlHandle" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Published Date</label>
+                    <input type="date" class="form-control" id="publishedDate" asp-for="PublishedDate" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" asp-for="Author" />
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="visible" asp-for="Visible" />
+                    <label class="form-check-label">Is Visible?</label>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Tags</label>
+                    <select class="form-select" asp-items="@Model.Tags" asp-for="SelectedTags"></select>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+        <script>
+            var editor = new FroalaEditor('#content');
+        </script>
+    }
+}

@@ -1,4 +1,5 @@
 using Jasons_Personal_Blog.Data;
+using Jasons_Personal_Blog.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<ITagRepository, TagRepository>();
+
+builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+
+builder.Services.AddScoped<IImageRepository, ImageRepository>();
+
 
 var app = builder.Build();
 

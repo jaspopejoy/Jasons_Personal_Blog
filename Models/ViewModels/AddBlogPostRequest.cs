@@ -1,11 +1,9 @@
-﻿using Azure;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Jasons_Personal_Blog.Models.Domain
+namespace Jasons_Personal_Blog.Models.ViewModels
 {
-    public class BlogPost
+    public class AddBlogPostRequest
     {
-        public Guid Id { get; set; }
-
         public string Heading { get; set; }
 
         public string PageTitle { get; set; }
@@ -24,7 +22,10 @@ namespace Jasons_Personal_Blog.Models.Domain
 
         public bool Visible { get; set; }
 
-        //navigation Property
-        public ICollection<Tag> Tags { get; set; }
+        //display tags
+        public IEnumerable<SelectListItem> Tags { get; set; }
+
+        //Collect Tags
+        public string[] SelectedTags { get; set; } = Array.Empty<string>();
     }
 }

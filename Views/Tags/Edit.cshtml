@@ -1,0 +1,51 @@
+﻿@model Jasons_Personal_Blog.Models.ViewModels.EditTagRequest
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="text-center py-2">
+    <div class="container">
+        <h1>Edit Tags - Admin Functionality</h1>
+    </div>
+</div>
+
+<hr />
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 py-3">
+            @if (Model != null)
+            {
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label text-white">Name</label>
+                        <input type="text" class="form-control" id="Name" asp-for="Name" required />
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-white">Display Name </label>
+                        <input type="text" class="form-control" id="DisplayName" asp-for="DisplayName" required />
+                        <span class="text-danger" asp-validation-for="DisplayName"></span>
+
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <p>Tag Not Found!!</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
